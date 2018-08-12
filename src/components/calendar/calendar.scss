@@ -1,0 +1,76 @@
+calendar {
+  .grid {
+    padding: 0;
+    .calendar-data {
+      background-color: #454353;
+      color: white;
+      padding: 5px 10px;
+      .col {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        text-transform: capitalize;
+        button.btnActionCalendar {
+          color: white;
+        }
+      }
+    }
+    .calendar-weekday,
+    .calendar-date {
+      background-color: #454353;
+      color: white;
+      margin: 0;
+      text-align: center;
+    }
+    .calendar-weekday {
+      background-color: #454353;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+    .calendar-days {
+      [col-1] {
+        flex: 0 0 14.285714285714286%;
+        max-width: 14.285714285714286%;
+        width: 14.285714285714286%;
+      }
+      .col {
+        min-height: 40px;
+        text-align: center;
+        padding: 7px;
+      }
+      .last-month,
+      .next-month {
+        color: #999999;
+        font-size: 90%;
+      }
+      .currentDate,
+      .otherDate {
+        padding: 5px;
+      }
+      .currentDate {
+        background-color: #60B9B3;
+        border-radius: 30px;
+        color: white;
+        font-weight: bold;
+        &.oneNumber {
+          padding: 6px 10px;
+        }
+      }
+      .currentDay {
+        color: #60B9B3;
+      }
+      .bullets {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        .bullet {
+          background-color: green;
+          border-radius: 50%;
+          height: 5px;
+          margin: 2px;
+          width: 5px;
+        }
+      }
+    }
+  }
+}

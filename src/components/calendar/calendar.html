@@ -1,0 +1,37 @@
+<ion-grid>
+  <ion-row class="calendar-data">
+    <ion-col col-2>
+      <button ion-button icon-only clear (click)="goToLastMonth()" class="btnActionCalendar" small>
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-8>
+      {{ calendarTitle }}
+    </ion-col>
+    <ion-col col-2>
+      <button ion-button icon-only clear (click)="goToNextMonth()" class="btnActionCalendar" small>
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <!-- weekday -->
+  <ion-row class="calendar-weekday">
+    <ion-col *ngFor="let weekday of daysShort[_language]">
+      {{ weekday }}
+    </ion-col>
+  </ion-row>
+
+  <!-- days -->
+  <ion-row class="calendar-days">
+    <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month" (click)="goToLastMonth(lastDay)">{{lastDay}}</ion-col>
+    <ion-col col-1 *ngFor="let day of daysInThisMonth" (click)="pressDay(day)">
+      <span [ngClass]="{'oneNumber': day.day < 10}" class="currentDate" *ngIf="day.selected;">{{day.day}}</span>
+      <span [ngClass]="{'currentDay': day.currentDay}" class="otherDate" *ngIf="!day.selected;">{{day.day}}</span>
+      <div class="bullets" *ngIf="day.eventos && !day.selected">
+        <span class="bullet"></span>
+      </div>
+    </ion-col>
+    <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month" (click)="goToNextMonth(nextDay)">{{nextDay}}</ion-col>
+  </ion-row>
+</ion-grid>
